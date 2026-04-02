@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/cart.css">
+  <title>BG Dhoop</title>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="track-container">
+
+    <h2>Track Your Order</h2>
+  
+    <form action="/track-order" method="POST" class="track-form" onsubmit="return validateForm()">
+  
+      <input type="text" name="phone" id="phone" placeholder="Enter Phone Number">
+      
+      <p>OR</p>
+    
+      <input type="text" name="orderId" id="orderId" placeholder="Enter Order ID">
+    
+      <button type="submit">Search Order</button>
+    
+    </form>
+  
+  </div>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    const phoneInput = document.getElementById("phone");
+    const orderInput = document.getElementById("orderId");
+    
+    // 🔥 Auto disable other field
+    phoneInput.addEventListener("input", () => {
+      if (phoneInput.value.trim() !== "") {
+        orderInput.disabled = true;
+      } else {
+        orderInput.disabled = false;
+      }
+    });
+    
+    orderInput.addEventListener("input", () => {
+      if (orderInput.value.trim() !== "") {
+        phoneInput.disabled = true;
+      } else {
+        phoneInput.disabled = false;
+      }
+    });
+    
+    // 🔥 Final submit validation
+    function validateForm() {
+      const phone = phoneInput.value.trim();
+      const orderId = orderInput.value.trim();
+    
+      if (!phone && !orderId) {
+        alert("⚠️ Please enter Phone Number OR Order ID");
+        return false;
+      }
+    
+      if (phone && orderId) {
+        alert("⚠️ Enter only one field");
+        return false;
+      }
+    
+      return true;
+    }
+    </script>
+</body>
+</html>

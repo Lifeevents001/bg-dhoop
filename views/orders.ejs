@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/orders.css">
+  <title>BG Dhoop</title>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="oders-container">
+    <h2>Your Orders</h2>
+
+<% if(message){ %>
+  <p><%= message %></p>
+<% } %>
+
+<div class="orders-container">
+
+  <% orders.forEach(order => { %>
+
+    <div class="order-card">
+
+      <h3><%= order.productName %></h3>
+
+      <p><b>Price:</b> ₹<%= order.price %></p>
+
+      <p><b>Order ID:</b> <%= order.orderId %></p>
+
+      <p><b>Status:</b> 
+        <span class="status <%= order.orderStatus.toLowerCase() %>">
+          <%= order.orderStatus %>
+        </span>
+      </p>
+
+      <p><b>Payment:</b> 
+        <span class="payment <%= order.paymentStatus.toLowerCase() %>">
+          <%= order.paymentStatus %>
+        </span>
+      </p>
+
+      <p><b>Date:</b> <%= new Date(order.createdAt).toLocaleString() %></p>
+
+    </div>
+
+  <% }) %>
+
+
+
+  </div>
+ 
+
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  background: linear-gradient(135deg, #fff7f0, #ffe8d6);
+}
+
+
+h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+
+p {
+  text-align: center;
+  color: #777;
+}
+
+
+.orders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 40px 40px;
+}
+
+
+.order-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  border-left: 5px solid #ff6600;
+}
+
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.order-card h3 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+
+.order-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+  text-align: left;
+}
+
+
+.order-card b {
+  color: #333;
+}
+
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.confirmed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.delivered {
+  background: #cce5ff;
+  color: #004085;
+}
+
+
+.payment {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.payment.pending {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.payment.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+
+@media (max-width: 768px) {
+  .orders-container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .orders-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .order-card {
+    padding: 15px;
+  }
+
+  .order-card h3 {
+    font-size: 16px;
+  }
+
+  .order-card p {
+    font-size: 13px;
+  }
+
+  .status,
+  .payment {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}

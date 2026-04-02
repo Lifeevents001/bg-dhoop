@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/order-success.css">
+  <title>BG Dhoop</title>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="order-success">
+
+    <h2>🎉 Order Placed Successfully</h2>
+  
+    <p>Your Order ID:</p>
+    <h3><%= orderId %></h3>
+  
+    <p>Please scan QR code and complete payment of Rs <%= price %></p>
+  
+    <!-- 🔥 QR CODE IMAGE -->
+    <img src="/images/QR.jpg" alt="Payment QR" class="qr-img">
+  
+    <p>After payment, click below and send screenshot</p>
+  
+    <a href="<%= whatsappUrl %>">
+      <button class="buy-btn">Send on WhatsApp</button>
+    </a>
+  
+  </div>
+  
+
+  <%- include('partials/footer') %>
+</body>
+</html>

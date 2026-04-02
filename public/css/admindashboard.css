@@ -1,0 +1,80 @@
+.admin-orders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.admin-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.admin-card select {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+.admin-card button {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+}
+
+
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+}
+
+
+.filter-bar button {
+  padding: 10px 16px;
+  border: none;
+  background: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+
+.filter-bar button:hover {
+  background: #ff6600;
+  color: #fff;
+}
+
+
+.filter-bar button:focus {
+  background: #ff6600;
+  color: #fff;
+}
+
+
+@media (max-width: 480px) {
+  .filter-bar {
+    gap: 6px;
+  }
+
+  .filter-bar button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .admin-card {
+    padding: 15px;
+  }
+}

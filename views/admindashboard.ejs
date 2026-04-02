@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/admindashboard.css">
+  <title>BGdhoop</title>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+
+  <h2>Admin Dashboard</h2>
+
+  <div class="filter-bar">
+
+    <button onclick="filterOrders('all')">All</button>
+  
+    <button onclick="filterOrders('pending')">Pending</button>
+    <button onclick="filterOrders('confirmed')">Confirmed</button>
+    <button onclick="filterOrders('delivered')">Delivered</button>
+  
+    <button onclick="filterOrders('paid')">Paid</button>
+    <button onclick="filterOrders('payment-pending')">Payment Pending</button>
+  
+  </div>
+
+  <div class="admin-orders">
+  
+  <% orders.forEach(order => { %>
+  
+    <div class="admin-card" 
+    data-status="<%= order.orderStatus.toLowerCase() %>" 
+    data-payment="<%= order.paymentStatus.toLowerCase() %>">
+  
+      <h3><%= order.productName %></h3>
+  
+      <p>₹<%= order.price %></p>
+      <p><b>Order ID:</b> <%= order.orderId %></p>
+      <p><b>Customer:</b> <%= order.customerName %></p>
+      <p><b>status:</b> <%= order.orderStatus %></p>
+      <p><b>Payment:</b> <%= order.paymentStatus %></p>
+  
+      <form action="/admin/update/<%= order._id %>" method="POST">
+  
+        <select name="status">
+          <option>Pending</option>
+          <option>Confirmed</option>
+          <option>Delivered</option>
+        </select>
+  
+        <select name="payment">
+          <option>Pending</option>
+          <option>Paid</option>
+        </select>
+  
+        <button>Update</button>
+  
+      </form>
+  
+    </div>
+  
+  <% }) %>
+  
+  </div>
+  
+  <%- include('partials/footer') %>
+
+  <script>
+    function filterOrders(type) {
+      const cards = document.querySelectorAll(".admin-card");
+    
+      cards.forEach(card => {
+        const status = card.dataset.status;
+        const payment = card.dataset.payment;
+    
+        if (type === "all") {
+          card.style.display = "block";
+        } 
+        else if (type === "paid") {
+          card.style.display = payment === "paid" ? "block" : "none";
+        }
+        else if (type === "payment-pending") {
+          card.style.display = payment === "pending" ? "block" : "none";
+        }
+        else {
+          card.style.display = status === type ? "block" : "none";
+        }
+      });
+    }
+    </script>
+</body>
+</html>

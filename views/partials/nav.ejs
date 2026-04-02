@@ -1,0 +1,41 @@
+<div class="nav-bar">
+
+  <div class="logo">
+      <a href="/">
+          <img src="/images/logo.png" alt="BG Dhoop Logo">
+      </a>
+  </div>
+
+  <div class="nav-cart">
+      <a href="/cart">🛒</a>
+  </div>
+
+  <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+</div>
+
+<!-- MENU OUTSIDE NAVBAR -->
+<div class="nav-links" id="navLinks">
+  <a href="/" >Home</a>
+  <a href="/aboutUs" class="page">About Us</a>
+  <a href="/products" class="page">Products</a>
+  <a href="/contactUs" class="page">Contact Us</a>
+</div>
+
+<script>
+
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  
+  hamburger.addEventListener("click", ()=>{
+  
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
+  
+  });
+  
+  </script>

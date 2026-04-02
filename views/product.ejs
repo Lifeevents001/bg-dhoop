@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/product.css" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <title><%= product.name %></title>
+</head>
+
+<body>
+  <%- include('partials/popmsg') %>
+  <%- include('partials/nav') %>
+
+  <div class="product-view">
+
+    <!-- 🔥 Dynamic Image -->
+    <div class="product-image">
+      <img src="<%= product.image %>" alt="<%= product.name %>">
+    </div>
+
+    <!-- 🔥 Dynamic Info -->
+    <div class="product-info">
+      <h1><%= product.name %></h1>
+
+      <p class="price">₹<%= product.price %></p>
+
+      <p class="desc">
+        <%= product.desc %>
+      </p>
+
+      <button class="buy-now" onclick="goToCheckout()">Buy Now</button>
+
+
+    </div>
+
+  </div>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    function goToCheckout() {
+      window.location.href = "/checkout/<%= productId %>";
+    }
+    </script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

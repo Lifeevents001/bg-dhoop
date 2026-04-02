@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <link rel="stylesheet" href="/css/contact.css" />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <title>BGdhoop</title>
+</head>
+<body>
+  <%- include('partials/popmsg') %> <%- include('partials/nav') %>
+
+
+  <section class="contact-section">
+
+    <h2 class="contact-title">Contact Us</h2>
+  
+    <div class="contact-container">
+  
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+  
+        <p>If you have any questions about our products or want to place a bulk order, feel free to contact us.</p>
+  
+        <p><strong>Phone:</strong> +91 8077320515</p>
+        <p><strong>Email:</strong> bgdhoop@gmail.com</p>
+        <p><strong>Location:</strong> Meerut, Uttar Pradesh, India</p>
+  
+      </div>
+  
+      <form action="/send-message" method="POST" class="contact-form">
+  
+        <input type="text" name="name" placeholder="Your Name" required>
+      
+        <input type="email" name="email" placeholder="Your Email" required>
+      
+        <textarea name="message" placeholder="Your Message" required></textarea>
+      
+        <button type="submit">Send Message</button>
+      
+      </form>
+  
+    </div>
+  
+  </section>
+  
+
+
+
+
+
+
+
+
+  <%- include('partials/footer') %>
+
+  
+
+   <script src="/js/main.js"></script>
+</body>
+</html>

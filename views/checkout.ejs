@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+  <link rel="stylesheet" href="/css/checkout.css">
+  <title>BG Dhoop</title>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="checkout-container">
+
+    <!-- Product Summary -->
+    <div class="product-summary">
+      <img src="<%= product.image %>" alt="">
+      <h3><%= product.name %></h3>
+      <p class="price">₹<%= product.price %></p>
+    </div>
+
+    <!-- Checkout Form -->
+    <form action="/place-order/<%= productId %>" method="POST" class="checkout-form">
+
+      <h2>Delivery Details</h2>
+
+      <input type="text" name="name" placeholder="Full Name" required>
+
+      <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}">
+
+      <textarea name="address" placeholder="Full Address" required></textarea>
+
+      <button type="submit">Place Order via WhatsApp</button>
+
+    </form>
+
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
